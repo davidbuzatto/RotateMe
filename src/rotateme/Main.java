@@ -113,7 +113,7 @@ public class Main extends Engine {
                 30, 
                 new Vector2( MathUtils.getRandomValue( -200, 200 ), 200 ), 
                 0.99, 0.9, 1000,
-                ColorUtils.colorFromHSV( MathUtils.getRandomValue( 180, 270 ), 1, 1 )
+                ColorUtils.colorFromHSV( MathUtils.getRandomValue( 180, 230 ), 1, MathUtils.clamp( MathUtils.getRandomValue( 80, 101 ) / 100.0, 0.8, 1.0 ) )
             ));
         }
         
