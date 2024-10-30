@@ -1,6 +1,6 @@
 package rotateme;
 
-import br.com.davidbuzatto.jsge.core.Engine;
+import br.com.davidbuzatto.jsge.core.engine.EngineFrame;
 import br.com.davidbuzatto.jsge.geom.Rectangle;
 import java.awt.Color;
 
@@ -19,9 +19,9 @@ public class Obstacle {
         this.color = color;
     }
     
-    public void draw( Engine engine ) {
+    public void draw( EngineFrame engine ) {
         engine.fillRectangle( rect, color );
-        engine.drawRectangle( rect, Engine.BLACK );
+        engine.drawRectangle( rect, EngineFrame.BLACK );
     }
     
 }

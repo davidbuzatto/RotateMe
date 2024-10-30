@@ -1,11 +1,11 @@
 package rotateme;
 
 import br.com.davidbuzatto.jsge.core.Camera2D;
-import br.com.davidbuzatto.jsge.core.Engine;
+import br.com.davidbuzatto.jsge.core.engine.EngineFrame;
+import br.com.davidbuzatto.jsge.core.utils.ColorUtils;
 import br.com.davidbuzatto.jsge.geom.Rectangle;
-import br.com.davidbuzatto.jsge.geom.Vector2;
-import br.com.davidbuzatto.jsge.utils.ColorUtils;
-import br.com.davidbuzatto.jsge.utils.MathUtils;
+import br.com.davidbuzatto.jsge.math.MathUtils;
+import br.com.davidbuzatto.jsge.math.Vector2;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -15,7 +15,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * 
  * @author Prof. Dr. David Buzatto
  */
-public class Main extends Engine {
+public class Main extends EngineFrame {
     
     public static double GRAVITY = 50;
     
@@ -78,7 +78,7 @@ public class Main extends Engine {
     public void update() {
         
         double delta = getFrameTime();
-        Vector2 mousePos = MathUtils.getScreenToWorld2D( getMouseX(), getMouseY(), camera );
+        Vector2 mousePos = camera.getScreenToWorld( getMouseX(), getMouseY() );
         
         for ( Ball ball : balls ) {
             ball.processInput( mousePos, this );

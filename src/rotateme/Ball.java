@@ -1,10 +1,10 @@
 package rotateme;
 
-import br.com.davidbuzatto.jsge.core.Engine;
+import br.com.davidbuzatto.jsge.core.engine.EngineFrame;
 import br.com.davidbuzatto.jsge.geom.Circle;
 import br.com.davidbuzatto.jsge.geom.Rectangle;
-import br.com.davidbuzatto.jsge.geom.Vector2;
-import br.com.davidbuzatto.jsge.utils.CollisionUtils;
+import br.com.davidbuzatto.jsge.math.CollisionUtils;
+import br.com.davidbuzatto.jsge.math.Vector2;
 import java.awt.Color;
 import java.util.List;
 
@@ -58,9 +58,9 @@ public class Ball {
         
     }
 
-    public void processInput( Vector2 mousePos, Engine engine ) {
+    public void processInput( Vector2 mousePos, EngineFrame engine ) {
 
-        if ( engine.isMouseButtonPressed( Engine.MOUSE_BUTTON_LEFT ) ) {
+        if ( engine.isMouseButtonPressed( EngineFrame.MOUSE_BUTTON_LEFT ) ) {
             if ( CollisionUtils.checkCollisionPointCircle( mousePos, pos, radius ) ) {
                 dragging = true;
                 pressOffset.x = mousePos.x - pos.x;
@@ -68,13 +68,13 @@ public class Ball {
             }
         }
 
-        if ( engine.isMouseButtonReleased( Engine.MOUSE_BUTTON_LEFT ) ) {
+        if ( engine.isMouseButtonReleased( EngineFrame.MOUSE_BUTTON_LEFT ) ) {
             dragging = false;
         }
 
     }
 
-    public void update( double delta, Rectangle limits, Vector2 mousePos, Engine engine ) {
+    public void update( double delta, Rectangle limits, Vector2 mousePos, EngineFrame engine ) {
 
         if ( !dragging ) {
 
@@ -219,15 +219,15 @@ public class Ball {
         
     }
     
-    public void draw( Engine engine ) {
+    public void draw( EngineFrame engine ) {
         
         engine.fillCircle( pos, radius, color );
-        engine.drawCircle( pos, radius, Engine.BLACK );
+        engine.drawCircle( pos, radius, EngineFrame.BLACK );
         
-        /*engine.fillCircle( cpUp, Engine.RED );
-        engine.fillCircle( cpDown, Engine.GREEN );
-        engine.fillCircle( cpLeft, Engine.ORANGE );
-        engine.fillCircle( cpRight, Engine.MAGENTA );*/
+        /*engine.fillCircle( cpUp, EngineFrame.RED );
+        engine.fillCircle( cpDown, EngineFrame.GREEN );
+        engine.fillCircle( cpLeft, EngineFrame.ORANGE );
+        engine.fillCircle( cpRight, EngineFrame.MAGENTA );*/
         
     }
 
